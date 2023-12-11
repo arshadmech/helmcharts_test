@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migration
+spec:
+  template:
+    metadata:
+      name: migration
+    spec:
+      imagePullSecrets:
+        - name: regcrd
+      containers:
+        - name: migration
+          image: ovaledgellc/internaltest:migration_latest
+          env:
+            - name: OVALEDGE_MYSQL_URL
+              value: {{ .Values.dbdetails.OVALEDGE_MYSQL_URL | quote }}
+            - name: OVALEDGE_MYSQL_USER
+              value: {{ .Values.dbdetails.OVALEDGE_MYSQL_USER | quote }}
+            - name: OVALEDGE_MYSQL_PWORD
+              value: {{ .Values.dbdetails.OVALEDGE_MYSQL_PWORD | quote }}
+      restartPolicy: Never
