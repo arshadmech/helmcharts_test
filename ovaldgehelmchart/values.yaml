@@ -16,7 +16,7 @@ image:
   repository: ovaledgellc/internaltest
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "war_file_new"
+  tag: "ovaledge_war_with_lin1"
   #    imagePullSecrets:
 #      - name: regcrd
 dbdetails:
