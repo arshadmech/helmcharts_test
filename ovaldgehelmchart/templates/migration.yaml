@@ -16,7 +16,7 @@ spec:
         - name: regcrd
       containers:
         - name: migration
-          image: ovaledgellc/internaltest:testing_jar
+          image: ovaledgellc/internaltest:migration_latest_test
           env:
             - name: OVALEDGE_MYSQL_URL
               value: {{ .Values.dbdetails.OVALEDGE_MYSQL_URL | quote }}
