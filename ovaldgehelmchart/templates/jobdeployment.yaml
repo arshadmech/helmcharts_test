@@ -24,17 +24,6 @@ spec:
        - name: regcrd
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      initContainers:
-        - name: health-check
-          image: ovaledgellc/internaltest:curl  # Use an image with curl or wget for health checking
-          command:
-            - "sh"
-            - "-c"
-            - |
-              until curl -sSf http://migration-service:8090/oe-dbms/health/status | grep -q "false"; do
-                echo "Waiting for service to be healthy..."
-                sleep 5
-              done
       containers:
         - name: {{ .Chart.Name }}
           securityContext:

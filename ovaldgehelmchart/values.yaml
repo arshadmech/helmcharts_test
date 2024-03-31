@@ -16,14 +16,14 @@ image:
   repository: ovaledgellc/internaltest
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "ovaledge_war_with_lineage"
+  tag: "datacatalog-3"
   #    imagePullSecrets:
 #      - name: regcrd
 dbdetails:
   enabled: true
   #OE: Specify keys for Ovaledge rds mysql property keys
   DRIVER_CLASS_NAME: "com.mysql.cj.jdbc.Driver"
-  OVALEDGE_MYSQL_URL: "jdbc:mysql://172.16.38.130:3306/ovaledgedb?useSSL=false"
+  OVALEDGE_MYSQL_URL: "jdbc:mysql://192.168.1.213:4040/ovaledgedb?useSSL=false"
   OVALEDGE_MYSQL_USER: "root"
   OVALEDGE_MYSQL_PWORD: "0valEdge!"
   OE: Specify your own encryption value in text format
@@ -49,7 +49,7 @@ dbdetails:
   certificate_key: "certificatekey"
   SAML_PATH: "/usr/local/tomcat/conf/saml"
   saml_path: "/usr/local/tomcat/conf/saml/"
-  ES_HOST: "a35d3b3ad22fd4588a7d89941e45aff3-1285647164.ap-south-1.elb.amazonaws.com"
+  ES_HOST: "192.168.1.211"
   ES_PORT: "9200"
   ES_USERNAME: "elastic"
   ES_PASSWORD: "0valEdge!"
